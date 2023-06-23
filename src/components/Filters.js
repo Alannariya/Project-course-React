@@ -1,11 +1,78 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
-import { getUniqueValues, formatPrice } from '../utils/helpers'
+import { getUniqueValues } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
-  return <h4>filters</h4>
+	const {
+		filters:{
+			text,	author,	style
+		},
+		updateFilters,
+		clearFilters,
+		all_gallery
+	} = useFilterContext()
+
+	const authors = getUniqueValues (all_gallery,'author')
+	const styles = getUniqueValues (all_gallery,'style')
+	// console.log(styles)
+  return (
+		<Wrapper>
+			<div className='content'>
+				<form onSubmit={(e)=> e.preventDefault()} >
+					<div className='form-control'>
+						<input 
+							type='text' 
+							name='text' 
+							placeholder='поиск' 
+							className='search-input'
+							value={text}
+							onChange={updateFilters} />
+					</div >
+					<div className='form-control'>
+						<h5>стиль</h5>
+						<div>
+							{styles.map((s, index) => {
+								return <button 
+								key={index}
+								onClick={updateFilters}
+								type='button'
+								name='style'
+								className={`${
+									style === s.toLowerCase() ? 'active' : null
+								}`}
+								>{s}</button>
+							})}
+						</div>
+					</div>
+					<div className='form-control'>
+							<h5>художник</h5>
+							<select 
+								name='author' 
+								value={author}
+								onChange={updateFilters}
+								className='authors' >
+									{authors.map((a, index) => {
+										return (
+											<option key={index} value={a}>
+											{a}
+										</option>
+										)
+									})}
+								</select>
+					</div>
+				</form>
+				<button 
+					type='button' 
+					className='clear-btn' 
+					onClick={clearFilters}
+					>
+						очистить
+				</button>
+			</div>
+		</Wrapper>
+	)	
 }
 
 const Wrapper = styled.section`
@@ -41,59 +108,14 @@ const Wrapper = styled.section`
   .active {
     border-color: var(--clr-grey-5);
   }
-  .company {
+  .authors {
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: transparent;
     padding: 0.25rem;
+		width: 10rem;
   }
-  .colors {
-    display: flex;
-    align-items: center;
-  }
-  .color-btn {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: #222;
-    margin-right: 0.5rem;
-    border: none;
-    cursor: pointer;
-    opacity: 0.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      font-size: 0.5rem;
-      color: var(--clr-white);
-    }
-  }
-  .all-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.5rem;
-    opacity: 0.5;
-  }
-  .active {
-    opacity: 1;
-  }
-  .all-btn .active {
-    text-decoration: underline;
-  }
-  .price {
-    margin-bottom: 0.25rem;
-  }
-  .shipping {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    text-transform: capitalize;
-    column-gap: 0.5rem;
-    font-size: 1rem;
-    max-width: 200px;
-  }
+ 
   .clear-btn {
     background: var(--clr-red-dark);
     color: var(--clr-white);

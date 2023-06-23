@@ -16,7 +16,12 @@ const initialState = {
 	filtered_gallery:[],
 	all_gallery:[],
 	grid_view: true,
-	sort:'year-lowest'
+	sort:'year-lowest',
+	filters:{
+		text:'',
+		author:'all',
+		style:'all',
+	}
 }
 
 const FilterContext = React.createContext()
@@ -29,15 +34,39 @@ export const FilterProvider = ({ children }) => {
 		dispatch({type:LOAD_GALLERY, payload: gallery})
 	},[gallery])
 
+	useEffect(() => {
+		dispatch({type: FILTER_GALLERY})
+		dispatch({type: SORT_GALLERY})
+	},[gallery, state.sort, state.filters])
+
+
 	const setGridView = () => {
 		dispatch({type: SET_GRIDVIEW})
 	}
 	const setListView = () => {
 		dispatch({type: SET_LISTVIEW})
 	}
+	const updateSort = (e) => {
+		// const name = e.target.name
+		const value = e.target.value
+		dispatch ({type:UPDATE_SORT, payload: value})
+	}
+
+	const updateFilters = (e) => {
+		let name = e.target.name
+		let value = e.target.value
+		if (name === 'style') {
+			value = e.target.textContent
+		}
+		dispatch ({type:UPDATE_FILTERS, payload: {name, value}})
+	}
+	const clearFilters = () => {
+		dispatch ({ type: CLEAR_FILTERS})
+	}
+
 
   return (
-    <FilterContext.Provider value={{...state, setGridView, setListView}}>
+    <FilterContext.Provider value={{...state, setGridView, setListView, updateSort, updateFilters, clearFilters }}>
       {children}
     </FilterContext.Provider>
   )

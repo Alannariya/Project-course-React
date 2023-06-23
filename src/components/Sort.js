@@ -3,7 +3,14 @@ import { useFilterContext } from '../context/filter_context'
 import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 const Sort = () => {
-	const {filtered_gallery: gallery, grid_view, setListView, setGridView} = useFilterContext ()
+	const {
+		filtered_gallery: gallery,
+		grid_view,
+		setListView,
+		setGridView,
+		sort,
+		updateSort
+	} = useFilterContext ()
 	
   return (
 		<Wrapper>
@@ -19,7 +26,8 @@ const Sort = () => {
 			<hr />
 			<form>
 				<label htmlFor='sort' >сортировать</label>
-				<select name='sort' id='sort' className='sort-input'>
+				<select name='sort' id='sort' className='sort-input'
+					value={sort} onChange={updateSort} >
 					<option value='name-a'>название (а-я)</option>
 					<option value='name-z'>название (я-а)</option>
 					<option value='year-lowest'>по возрастанию даты</option>
