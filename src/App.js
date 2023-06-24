@@ -1,31 +1,25 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-import {Home, About, Gallery, SinglePaintingPage, Error} from './pages'
+import {Home, About, Gallery, SinglePaintingPage, Error, AuthWrapper} from './pages'
 
 
 function App() {
   return (
+		<AuthWrapper>
 		<Router>
 			<Navbar/>
 			<Sidebar/>
-			<Switch>
-				<Route exact path='/'>
-					<Home/>
-				</Route>
-				<Route exact path='/about'>
-					<About/>
-				</Route>
-				<Route exact path='/gallery'>
-					<Gallery/>
-				</Route>
-				<Route exact path='/gallery/:id' children={<SinglePaintingPage/>}/>
-				<Route path='*'>
-					<Error/>
-				</Route>
-			</Switch>
+			<Routes>
+				<Route path='/' element={<Home/>} />
+				<Route path='about' element={<About/>} />
+				<Route path='gallery' element={<Gallery/>} />
+				<Route path='gallery/:id' element={<SinglePaintingPage/>} />
+				<Route path='*' element={<Error/>} />
+			</Routes>
 			<Footer/>
 		</Router>
+		</AuthWrapper>
 	)
 }
 

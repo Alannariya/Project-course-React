@@ -71,6 +71,7 @@ const Wrapper = styled.article`
   footer p {
     margin-bottom: 0;
     font-weight: 400;
+		text-align: center;
   }
 
   footer p {

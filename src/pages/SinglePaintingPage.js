@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useGalleryContext } from '../context/gallery_context'
 import { single_painting_url as url } from '../utils/constants'
 import {
@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 
 const SinglePaintingPage = () => {
 	const { id } = useParams()
-	const history = useHistory()
+	const navigate = useNavigate()
 	const {
 		single_painting_loading: loading,
 		single_painting_error: error,
@@ -22,14 +22,16 @@ const SinglePaintingPage = () => {
 
 	useEffect (() => {
 		fetchSinglePainting(`${url}${id}`)
+		// eslint-disable-next-line
 	}, [id])
 
 	useEffect(() => {
 		if(error){
 			setTimeout(() =>{
-				history.push('/')
+				navigate('/')
 			},3000)
 		}
+		// eslint-disable-next-line
 	}, [error])
 
 	if (loading) {
@@ -39,7 +41,9 @@ const SinglePaintingPage = () => {
 		return <Error/>
 	}
 
-	
+	if (!painting[0]) {
+		return <Error />;
+	}
  const {img, title, author, year, style, info} = painting[0]
  console.log(painting)
  console.log(title)
