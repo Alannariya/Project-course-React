@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { links } from '../utils/constants'
 import LogButton from './LogButton'
 import { useGalleryContext } from '../context/gallery_context'
-import { useUserContext } from '../context/user_context'
+
 
 const Nav = () => {
 	const {openSidebar} =useGalleryContext();
@@ -52,7 +52,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 175px;
+      width: 220px;
       margin-left: -15px;
     }
   }

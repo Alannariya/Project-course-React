@@ -29,6 +29,9 @@ const FeaturedPaintings = () => {
 					return <Painting key={painting.id} {...painting}/>
 				})}
 			</div>
+			<Link to='/gallery' className='btn'>
+        перейти в галерею
+      </Link>
 		</Wrapper>
 	)	
 }

@@ -21,7 +21,6 @@ const PaintingList = () => {
 
   return (
 		<GridView gallery={gallery}>
-
 		</GridView>
 	)	
 }

@@ -1,18 +1,20 @@
 import React from 'react'
 import { FaUserMinus, FaUserPlus } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { useGalleryContext } from '../context/gallery_context'
-import { useCartContext } from '../context/cart_context'
 import { useUserContext } from '../context/user_context'
 
 const LogButton = () => {
-	// const {closeSidebar} = useGalleryContext();
+	
+  const {loginWithRedirect,logout, myUser} = useUserContext()
 
   return <Wrapper className='log-btn-wrapper'>
-		<button type='button' className='auth-btn'>
+		{myUser ? <button type='button' className='auth-btn' onClick={() => logout ({returnTo:window.location.origin})}>
+			Выйти <FaUserMinus/>
+		</button> : <button type='button' className='auth-btn' onClick={loginWithRedirect}>
 			Войти <FaUserPlus/>
-		</button>
+		</button>}
+		
+		
 	</Wrapper>
 }
 
@@ -26,7 +28,7 @@ const Wrapper = styled.div`
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);

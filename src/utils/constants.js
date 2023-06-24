@@ -22,23 +22,23 @@ export const services = [
   {
     id: 1,
     icon: <GiCompass />,
-    title: 'познание мира',
+    title: 'познание',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'Изобразительное искусство — язык, с помощью которого мы учимся говорить о своих эмоциях и чувствах, выражать собственные позицию и мнение.Разговаривая о картинах и изучая истории жизни художников, молодые люди находят в них отражение собственных взглядов.',
   },
   {
     id: 2,
     icon: <GiDiamondHard />,
-    title: 'расширение кругозора',
+    title: 'гибкость мышления',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'В искусстве, в отличие от математики, нет неправильных ответов. Размышляя над произведением, зрители всегда интерпретирует его через призму личного опыта. Изучая искусство, мы знакомимся с разными мировоззрениями людей, учимся слушать и воспринимать различные точки зрения, а также понимать, что ко всему есть более чем один подход.',
   },
   {
     id: 3,
     icon: <GiStabbedNote />,
     title: 'история',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'Искусство важно изучать, потому что оно всегда отражает время. Это еще один способ понимания истории человечества и отдельных культур. Искусство одухотворяет человека, несет в себе огромный сакральный смысл. Оно способно менять окружающий мир, что ставит его в один ряд с наукой.',
   },
 ]
 

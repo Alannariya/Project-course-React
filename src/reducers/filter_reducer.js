@@ -73,7 +73,7 @@ const filter_reducer = (state, action) => {
       )
 		}
 		if (author !== 'all') {
-      tempGallery  = tempGallery .filter((painting) => 
+      tempGallery  = tempGallery.filter((painting) => 
 			painting.author === author
       )
     }

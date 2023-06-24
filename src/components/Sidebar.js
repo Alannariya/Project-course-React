@@ -6,7 +6,7 @@ import { FaTimes } from 'react-icons/fa'
 import { links } from '../utils/constants'
 import styled from 'styled-components'
 import LogButton from './LogButton'
-import { useUserContext } from '../context/user_context'
+
 
 const Sidebar = () => {
 	const {isSidebarOpen, closeSidebar} = useGalleryContext();

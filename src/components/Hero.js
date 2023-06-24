@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+import heroBcg from '../assets/hero-bcg.jpg'
+import heroBcg2 from '../assets/hero-bcg-2.jpg'
 
 const Hero = () => {
   return (
@@ -13,7 +13,7 @@ const Hero = () => {
 					к искусству
 				</h1>
 				<p>
-					text
+				Все наши впечатления, фантазии, увиденные архитектурные ландшафты, предметы, пейзажи удивительным образом находят свое отображение в творческих работах великих мастеров и знаменитых художников. Можно сказать, что любая галерея картин насыщает зрителя таинственным колоритом высокого искусства и неповторимыми оттенками внутреннего мира их создателя.
 				</p>
 				<Link to='/gallery' className='btn hero-btn'>
 					перейти в галерею
@@ -28,7 +28,7 @@ const Hero = () => {
 }
 
 const Wrapper = styled.section`
-  min-height: 60vh;
+  min-height: 45vh;
   display: grid;
   place-items: center;
   .img-container {
