@@ -1,12 +1,14 @@
 ## Notes
 
-Требования к выпускному проекту
+Requirements for the graduation project:
 
-Выпускной проект представляет одностраничное веб-приложение (Single Page Application).
-Веб-приложение:
-- должно использовать компонентный подход с использованием React;
-- должно демонстрировать умение создавать быстродействующие динамичные веб-страницы;
-- должно демонстрировать умение работать с коммуникационными протоколами.
+The graduation project should be a Single Page Application (SPA) web application.
+
+The web application:
+
+- Must utilize a component-based approach using React.
+- Should demonstrate the ability to create fast and dynamic web pages.
+- Must showcase proficiency in working with communication protocols.
 
 
 ## Available Scripts
